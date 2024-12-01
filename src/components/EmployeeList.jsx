@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { AuthContext } from '../../frontend/AuthContext';
 
 function EmployeeList() {
   const [employees, setEmployees] = useState([]);
+
+  const { auth } = useContext(AuthContext);
+  if (!auth.isAuthenticated) {
+    window.location.href = '/login';
+  }
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/employees')
@@ -14,6 +20,7 @@ function EmployeeList() {
     <div>
       <h1>Employee List</h1>
       <p>Welcome to the Employee List!</p>
+      <button onClick={logout}>Logout</button>
       <ul>
         {employees.map(employee => (
           <li key={employee._id}>
