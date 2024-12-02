@@ -23,8 +23,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/employeelist" element={<EmployeeList />} />
         <Route path="/addemployee" element={<AddEmployee />} />
-        <Route path="/updateemployee" element={<UpdateEmployee />} />
-        <Route path="/deleteemployee" element={<DeleteEmployee />} />
+        <Route path="/updateemployee/:employeeId" element={<UpdateEmployee />} />
+        <Route path="/deleteemployee/:employeeId" element={<DeleteEmployee />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <footer>
@@ -35,4 +35,5 @@ function App() {
 }
 
 export default App
+
 

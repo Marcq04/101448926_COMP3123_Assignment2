@@ -19,3 +19,4 @@ employeeSchema.pre("save", function (next) {
 });
 
 module.exports = mongoose.model("Employee", employeeSchema);
+
